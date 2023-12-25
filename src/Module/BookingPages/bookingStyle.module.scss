@@ -1,0 +1,25 @@
+.chair {
+  width: 27px;
+  height: 27px;
+  border: 1px solid #111;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.booking {
+  background: red;
+  color: #fff;
+  border: transparent;
+}
+
+.booked {
+  background: grey !important;
+  color:#111;
+  pointer-events: none;
+}
+
+.vipChair {
+  background: yellow;
+}
