@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import cn from "classnames";
 import style from "./bookingStyle.module.scss";
 import "../../Style/base.scss";
-import CurrencyFormat from "react-currency-format";
+import { NumericFormat } from "react-number-format";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { bookingAPI } from "../../APIs/bookingAPIs";
 import { BookingPageAction } from "../../Store/BookingPagesSlice/slice";
@@ -49,9 +49,7 @@ const PayBill = ({ movieInfo = {} }) => {
   };
   return (
     <Box>
-      <Box>
-        
-      </Box>
+      <Box></Box>
       <Card sx={{ padding: 1 }}>
         <Box sx={{ display: "flex" }}>
           <CardMedia
@@ -76,7 +74,7 @@ const PayBill = ({ movieInfo = {} }) => {
                 Ghế Thường:{"  "}
                 {gheThuong.length > 0 ? `x${gheThuong.length}` : ""}
               </Typography>
-              <CurrencyFormat
+              <NumericFormat
                 value={
                   gheThuong.length > 0
                     ? `${gheThuong.reduce((total, value) => {
@@ -84,9 +82,9 @@ const PayBill = ({ movieInfo = {} }) => {
                       }, 0)}`
                     : ""
                 }
-                displayType={"text"}
-                thousandSeparator={true}
-                suffix={"VND"}
+                thousandsGroupStyle="thousand"
+                thousandSeparator=","
+                suffix="VNĐ"
               />
             </Box>
             <Box sx={{ display: "flex", flexWrap: "wrap" }}>
@@ -103,7 +101,7 @@ const PayBill = ({ movieInfo = {} }) => {
               <Typography>
                 Ghế Vip: {"  "} {gheVip.length > 0 ? `x${gheVip.length}` : ""}{" "}
               </Typography>
-              <CurrencyFormat
+              <NumericFormat
                 value={
                   gheVip.length > 0
                     ? `${gheVip.reduce((total, value) => {
@@ -111,9 +109,9 @@ const PayBill = ({ movieInfo = {} }) => {
                       }, 0)}`
                     : ""
                 }
-                displayType={"text"}
-                thousandSeparator={true}
-                suffix={"VND"}
+                thousandsGroupStyle="thousand"
+                thousandSeparator=","
+                suffix="VNĐ"
               />
             </Box>
             <Box sx={{ display: "flex", flexWrap: "wrap" }}>
@@ -128,7 +126,7 @@ const PayBill = ({ movieInfo = {} }) => {
           <Box>
             <Box sx={{ display: "flex", justifyContent: "space-between" }}>
               <Typography>Tổng tiền:</Typography>
-              <CurrencyFormat
+              <NumericFormat
                 value={
                   chairBooking.length > 0
                     ? `${chairBooking.reduce((total, value) => {
@@ -136,9 +134,9 @@ const PayBill = ({ movieInfo = {} }) => {
                       }, 0)}`
                     : ""
                 }
-                displayType={"text"}
-                thousandSeparator={true}
-                suffix={"VND"}
+                thousandsGroupStyle="thousand"
+                thousandSeparator=","
+                suffix="VNĐ"
               />
             </Box>
             <Box
